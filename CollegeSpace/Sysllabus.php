@@ -11,65 +11,70 @@
 		include("Navbar.php");
 	?>
 
+<?php
+$subjects = [
+    [
+        'name' => 'Artificial Intelligence',
+        'url' => ''
+    ],
+    [
+        'name' => 'Neural Language',
+        'url' => ''
+    ],
+    [
+        'name' => 'C',
+        'url' => 'sysllabusdb/c.php'
+    ],
+    [
+        'name' => 'C++',
+        'url' => ''
+    ],
+    [
+        'name' => 'Java',
+        'url' => ''
+    ],
+    [
+        'name' => 'Networking',
+        'url' => ''
+    ],
+    [
+        'name' => 'DBMS',
+        'url' => ''
+    ],
+    [
+        'name' => 'Data Structure',
+        'url' => ''
+    ]
+];
+
+// Number of columns per row
+$columnsPerRow = 4;
+?>
+
 <!-- Body1  -->
-	<div class="container mt-5" style="height: 100vh !important">
+	<div class="container mt-5" style="min-height: 100vh;">
 		<div class="row mt-5">
 			<div class="col-md-6 mt-5">
-				<h3>Sysllabus</h3>
-				<p>Sysllabus uploaded by teachers and admins</p>
-				
+				<h3>Syllabus</h3>
+				<p>Syllabus uploaded by teachers and admins</p>
 			</div>
-		<div class="col-md-6">
-			<table class="m-3">
-				<tr>
-					<th width="100" >
-						<div class="card p-3 m-1" style="height: 100px !important">
-						<center> <a href="">Artifical Intelligance</a></center>
-					</div>
-					</th>
-					<th width="100" height="100">
-						<div class="card p-3 m-1" style="height: 100px !important">
-						<center><a href="">Neural language</a></center>
-					</div>
-					</th>
-					<th width="100" height="100">
-						<div class="card p-3 m-1" style="height: 100px !important">
-						<center><a href="sysllabusdb/c.php">C</a></center>
-					</div>
-					</th>
-					<th width="100" height="100">
-						<div class="card p-3 m-1" style="height: 100px !important">
-						<center><a href="">C++</a></center>
-					</div>
-					</th>
-				</tr>
-				<tr>
-					<th width="100" >
-						<div class="card p-3 m-1" style="height: 100px !important">
-						<center> <a href="">Java</a></center>
-					</div>
-					</th>
-					<th width="100" height="100">
-						<div class="card p-3 m-1" style="height: 100px !important">
-						<center><a href="">Networking</a></center>
-					</div>
-					</th>
-					<th width="100" height="100">
-						<div class="card p-3 m-1" style="height: 100px !important">
-						<center><a href="">DBMS</a></center>
-					</div>
-					</th>
-					<th width="100" height="100">
-						<div class="card p-3 m-1" style="height: 100px !important">
-						<center><a href="">Data Structure</a></center>
-					</div>
-					</th>
-				</tr>	
-
-			</table>
-				
 			
-		</div>
+			<div class="col-md-6">
+				<div class="row g-2">
+					<?php foreach ($subjects as $index => $subject): ?>
+						<div class="col-6 col-lg-3">
+							<div class="card h-100 p-3" style="min-height: 100px;">
+								<div class="d-flex align-items-center justify-content-center h-100">
+									<a href="<?php echo htmlspecialchars($subject['url']); ?>" 
+									   class="text-decoration-none text-center">
+										<?php echo htmlspecialchars($subject['name']); ?>
+									</a>
+								</div>
+							</div>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			</div>
 		</div>
 	</div>
 
